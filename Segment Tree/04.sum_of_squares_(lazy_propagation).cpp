@@ -155,7 +155,6 @@ void update_incrementor(tree_attrs *tree, lazy_attrs *lazy, int start, int end, 
     // Completely outside
     if (start > right || end < left)
         return;
-    
 
     //Completely inside
     if (start >= left && end <= right)
@@ -247,7 +246,7 @@ int main()
         lazy_attrs *lazy = new lazy_attrs[4 * n]();
         buildTree(arr, tree, 0, n - 1, 1);
 
-        cout << "Case " << case_no << ":\n"; 
+        cout << "Case " << case_no << ":\n";
         case_no++;
         while (q--)
         {
@@ -257,19 +256,19 @@ int main()
             {
                 int left, right, val;
                 cin >> left >> right >> val;
-                update_setter(tree, lazy, 0, n - 1, 1, left-1, right-1, val);
+                update_setter(tree, lazy, 0, n - 1, 1, left - 1, right - 1, val);
             }
             else if (type_of_operation == 1)
             {
                 int left, right, val;
                 cin >> left >> right >> val;
-                update_incrementor(tree, lazy, 0, n - 1, 1, left-1, right-1, val);
+                update_incrementor(tree, lazy, 0, n - 1, 1, left - 1, right - 1, val);
             }
             else
             {
                 int left, right;
                 cin >> left >> right;
-                cout << query(tree, lazy, 0, n - 1, 1, left-1, right-1).sum_of_squares << endl;
+                cout << query(tree, lazy, 0, n - 1, 1, left - 1, right - 1).sum_of_squares << endl;
             }
         }
     }
