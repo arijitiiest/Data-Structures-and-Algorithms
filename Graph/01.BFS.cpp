@@ -12,6 +12,7 @@ class Graph
 
 public:
     Graph(int V);
+    ~Graph();
     void addEdge(int v, int w);
     void BFS(int s);
 };
@@ -20,6 +21,11 @@ Graph::Graph(int V)
 {
     this->V = V;
     adj = new list<int>[V];
+}
+
+Graph::~Graph()
+{
+    delete[] adj;
 }
 
 void Graph::addEdge(int v, int w)
