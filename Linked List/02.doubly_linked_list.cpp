@@ -1,5 +1,5 @@
 /*
-    Implementation of a singly linked list.
+    Implementation of a doubly linked list.
 
     A node can be added in 4 ways:
         1. insert at the front of the linked list,
@@ -19,12 +19,12 @@ class Node
 {
 public:
     int data;
-    Node *next;
+    Node *next, *prev;
 
     Node(int x)
     {
         data = x;
-        next = NULL;
+        next = prev = NULL;
     }
 };
 
@@ -33,9 +33,15 @@ public:
 // Insert at the front
 void insert_front(Node **root, int data)
 {
+    if (*root == NULL)
+    {
+        *root = new Node(data);
+        return;
+    }
     Node *newNode = new Node(data);
     newNode->next = (*root);
-    (*root) = newNode;
+    (*root)->prev = newNode;
+    *root = newNode;
 }
 
 // Insert after a given node
@@ -51,22 +57,20 @@ void insert_after(Node **root, int key, int data)
         return;
     }
 
-    // Insert after key node
     Node *newNode = new Node(data);
     newNode->next = temp->next;
+    newNode->prev = temp;
+    if (temp->next != NULL)
+        temp->next->prev = newNode;
     temp->next = newNode;
 }
 
 // Insert before a given node
 void insert_before(Node **root, int key, int data)
 {
-    Node *temp, *prev;
-    temp = prev = (*root);
+    Node *temp = (*root);
     while (temp != NULL && temp->data != key)
-    {
-        prev = temp;
         temp = temp->next;
-    }
 
     if (temp == NULL || temp->data != key)
     {
@@ -74,97 +78,88 @@ void insert_before(Node **root, int key, int data)
         return;
     }
 
-    // Insert before key node
     Node *newNode = new Node(data);
+    newNode->next = temp;
+    newNode->prev = temp->prev;
     if (temp == (*root))
     {
-        newNode->next = (*root);
+        temp->prev = newNode;
         (*root) = newNode;
+        return;
     }
-    else
-    {
-        prev->next = newNode;
-        newNode->next = temp;
-    }
+    temp->prev->next = newNode;
+    temp->prev = newNode;
 }
 
 // Insert at the end
 void insert_back(Node **root, int data)
 {
-    Node *newNode = new Node(data);
     if ((*root) == NULL)
     {
-        (*root) = newNode;
+        *root = new Node(data);
         return;
     }
 
-    Node *temp, *prev;
-    temp = (*root);
+    Node *prev, *temp = (*root);
     while (temp != NULL)
     {
         prev = temp;
         temp = temp->next;
     }
+
+    Node *newNode = new Node(data);
+    newNode->prev = prev;
     prev->next = newNode;
 }
 
 // Delete a node given as key
 void delete_node(Node **root, int key)
 {
-    Node *prev, *temp = (*root);
+    Node *temp = (*root);
+    while (temp != NULL && temp->data != key)
+        temp = temp->next;
 
-    if (temp != NULL && temp->data == key)
+    if (temp == NULL || temp->data != key)
+    {
+        cout << key << " not found\n";
+        return;
+    }
+
+    if (temp == (*root))
     {
         *root = (*root)->next;
         free(temp);
         return;
     }
 
-    while (temp != NULL && temp->data != key)
-    {
-        prev = temp;
-        temp = temp->next;
-    }
-
-    if (temp->data != key)
-    {
-        cout << key << " not found\n";
-        return;
-    }
-
-    prev->next = temp->next;
-
+    temp->prev->next = temp->next;
+    temp->next->prev = temp->prev;
     free(temp);
 }
 
 // Delete a node given as index
 void delete_index(Node **root, int index)
 {
-    if ((*root) == NULL)
-        return;
-
     Node *temp = (*root);
-
     if (index == 0)
     {
-        (*root) = temp->next;
+        *root = (*root)->next;
         free(temp);
         return;
     }
 
-    // previous node of the node to be deleted
-    for (int i = 0; temp != NULL && i < index - 1; i++)
+    for (int i = 0; temp != NULL && i < index; i++)
         temp = temp->next;
 
-    if (temp == NULL || temp->next == NULL)
+    if (temp == NULL)
     {
         cout << "Segmentation Fault\n";
         return;
     }
 
-    Node *next = temp->next->next;
-    free(temp->next);
-    temp->next = next;
+    temp->prev->next = temp->next;
+    temp->next->prev = temp->prev;
+    free(temp);
 }
 
 // Prints the list starting from the given node
