@@ -3,7 +3,7 @@
 ![Language](https://img.shields.io/badge/language-C++11%20%2F%20Python3-orange.svg)&nbsp;
 
 * My journey of learning Algorithm and Data Structure
-* This repo contains algo and ds taken from diff websites
+* This repo contains Data Structure and Algorithm Questions
 * My 100 Day challenge towords ---->
   
 ## Data Structure
@@ -38,29 +38,37 @@
 | # | Title                 |  Problem              | Solution      |   Time    |   Space    |
 |-----|-----------------|-------------------|-----------------|-----------|------------|
 
+
 ## Stack
 
 | # | Title                 |  Problem              | Solution      |   Time    |   Space    |
 |-----|-----------------|-------------------|-----------------|-----------|------------|
- 1 | Stack| Stack Implementation  | [C++](Stack/01.stack.cpp) | O(n) | O(1) |
- 2 | Stack| Stack using Linked List  | [C++](Stack/02.stack_using_linked_list.cpp) | O(n) | O(1) |
+ 1 | Stack | Stack Implementation  | [C++](Stack/01.stack.cpp) | - | - |
+ 2 | Stack | Stack using Linked List  | [C++](Stack/02.stack_using_linked_list.cpp) | - | - |
+
 
 ## Queue
 
 | # | Title                 |  Problem              | Solution      |   Time    |   Space    |
 |-----|-----------------|-------------------|-----------------|-----------|------------|
+ 1 | Queue | Queue Implementation  | [C++](Queue/01.queue.cpp) | - | - |
+ 2 | Deque | Deque in Circular Queue  | [C++](Queue/02.deque_in_circular_queue.cpp) | - | - |
 
 
 ## Linked List
 
 | # | Title                 |  Problem              | Solution      |   Time    |   Space    |
 |-----|-----------------|-------------------|-----------------|-----------|------------|
+ 1 | Singly Linked List | Singly Linked List Implementation  | [C++](Linked%20List/01.singly_linked_list.cpp) | - | - |
+ 2 | Doubly Linked List | Doubly Linked List Implementation  | [C++](Linked%20List/02.doubly_linked_list.cpp) | - | - |
 
 
 ## Binary Tree
 
 | # | Title                 |  Problem              | Solution      |   Time    |   Space    |
 |-----|-----------------|-------------------|-----------------|-----------|------------|
+ 1 | Binary Tree | Binary Tree Implementation  | [C++](Binary%20Tree/01.binary_tree.cpp) | - | - |
+ 2 | Traversals | Tree Traversals  | [C++](./Binary%20Tree/02.traversals.cpp) | - | - |
 
 
 ## Binary Search Tree
@@ -68,30 +76,36 @@
 | # | Title                 |  Problem              | Solution      |   Time    |   Space    |
 |-----|-----------------|-------------------|-----------------|-----------|------------|
 
+
 ## AVL
 
 | # | Title                 |  Problem              | Solution      |   Time    |   Space    |
 |-----|-----------------|-------------------|-----------------|-----------|------------|
+
 
 ## Heap
 
 | # | Title                 |  Problem              | Solution      |   Time    |   Space    |
 |-----|-----------------|-------------------|-----------------|-----------|------------|
 
+
 ## Hashing
 
 | # | Title                 |  Problem              | Solution      |   Time    |   Space    |
 |-----|-----------------|-------------------|-----------------|-----------|------------|
+
 
 ## Segment Tree
 
 | # | Title                 |  Problem              | Solution      |   Time    |   Space    |
 |-----|-----------------|-------------------|-----------------|-----------|------------|
 
+
 ## Fenwick Tree or BIT
 
 | # | Title                 |  Problem              | Solution      |   Time    |   Space    |
 |-----|-----------------|-------------------|-----------------|-----------|------------|
+
 
 ## Trie
 
@@ -104,35 +118,42 @@
 | # | Title                 |  Problem              | Solution      |   Time    |   Space    |
 |-----|-----------------|-------------------|-----------------|-----------|------------|
 
+
 ## Sorting
 
 | # | Title                 |  Problem              | Solution      |   Time    |   Space    |
 |-----|-----------------|-------------------|-----------------|-----------|------------|
+
 
 ## Greedy Algorithms
 
 | # | Title                 |  Problem              | Solution      |   Time    |   Space    |
 |-----|-----------------|-------------------|-----------------|-----------|------------|
 
+
 ## Backtracking
 
 | # | Title                 |  Problem              | Solution      |   Time    |   Space    |
 |-----|-----------------|-------------------|-----------------|-----------|------------|
+
 
 ## Graph Algorithms
 
 | # | Title                 |  Problem              | Solution      |   Time    |   Space    |
 |-----|-----------------|-------------------|-----------------|-----------|------------|
 
+
 ## Dynamic Programming
 
 | # | Title                 |  Problem              | Solution      |   Time    |   Space    |
 |-----|-----------------|-------------------|-----------------|-----------|------------|
 
+
 ## String Algorithms
 
 | # | Title                 |  Problem              | Solution      |   Time    |   Space    |
 |-----|-----------------|-------------------|-----------------|-----------|------------|
+
 
 ## Number Theory
 
