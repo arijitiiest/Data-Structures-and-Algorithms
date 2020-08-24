@@ -3,8 +3,8 @@
 ![Language](https://img.shields.io/badge/language-C++11%20%2F%20Python3-orange.svg)&nbsp;
 
 * My journey of learning Algorithm and Data Structure
-* This repo contains Data Structure and Algorithm Questions
-* My 100 Day challenge towords ---->
+* This repo contains solutions of some Data Structure and Algorithm Questions
+* Contributors are welcome!!! (Other languages also)
   
 ## Data Structure
 
