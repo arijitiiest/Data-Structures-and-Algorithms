@@ -16,6 +16,79 @@ struct Node
     }
 };
 
+void printPostorderIte(Node *node)
+{
+    stack<Node *> st;
+
+    while (true)
+    {
+        while (node != NULL)
+        {
+            st.push(node);
+            st.push(node);
+            node = node->left;
+        }
+
+        if (st.empty())
+            return;
+
+        node = st.top();
+        st.pop();
+
+        if (!st.empty() && st.top() == node)
+            node = node->right;
+        else
+        {
+            cout << node->key << " ";
+            node = NULL;
+        }
+    }
+}
+
+void printInorderIte(Node *node)
+{
+    stack<Node *> st;
+    while (node != NULL || !st.empty())
+    {
+        while (node != NULL)
+        {
+            st.push(node);
+            node = node->left;
+        }
+
+        node = st.top();
+        st.pop();
+
+        cout << node->key << " ";
+
+        node = node->right;
+    }
+}
+
+void printPreorderIte(Node *node)
+{
+    stack<Node *> st;
+
+    while (!st.empty() || node != NULL)
+    {
+        while (node != NULL)
+        {
+            cout << node->key << " ";
+
+            if (node->right)
+                st.push(node->right);
+
+            node = node->left;
+        }
+
+        if (!st.empty())
+        {
+            node = st.top();
+            st.pop();
+        }
+    }
+}
+
 void printPostorder(Node *node)
 {
     if (node == NULL)
@@ -55,15 +128,15 @@ int main()
     root->left->right = new Node(5);
 
     cout << "Preorder traversal of binary tree is : ";
-    printPreorder(root);
+    printPreorderIte(root);
     cout << "\n";
 
     cout << "Inorder traversal of binary tree is : ";
-    printInorder(root);
+    printInorderIte(root);
     cout << "\n";
 
     cout << "Postorder traversal of binary tree is : ";
-    printPostorder(root);
+    printPostorderIte(root);
     cout << "\n";
     return 0;
 }
