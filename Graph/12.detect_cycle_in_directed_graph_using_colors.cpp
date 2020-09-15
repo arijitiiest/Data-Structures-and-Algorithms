@@ -1,5 +1,5 @@
 /*
-    Given a directed graph, check whether the graph contains a cycle or not.
+    Given a directed graph, check whether the graph contains a cycle or not using colors.
 */
 
 #include <bits/stdc++.h>
@@ -39,7 +39,7 @@ Graph::~Graph()
 void Graph::addEdge(int v, int w)
 {
     adj[v].push_back(w);
-    adj[w].push_back(v); // For undirected graph
+    // adj[w].push_back(v); // For undirected graph
 }
 
 bool Graph::DFSUtil(int v, vector<int> color)

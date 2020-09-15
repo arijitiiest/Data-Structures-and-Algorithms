@@ -1,5 +1,5 @@
 /*
-    Given an undirected graph. Check if there is a cycle in the graph.
+    Given an directed graph. Check if there is a cycle in the graph.
 */
 
 #include <bits/stdc++.h>
