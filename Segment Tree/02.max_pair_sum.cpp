@@ -9,7 +9,7 @@ void buildTree(int *arr, vector<pair<int, int>> &tree, int start, int end, int t
 {
     if (start == end)
     {
-        tree[treeNode] = make_pair(arr[start], arr[start]);
+        tree[treeNode] = make_pair(arr[start], 0);
         return;
     }
 
@@ -18,7 +18,7 @@ void buildTree(int *arr, vector<pair<int, int>> &tree, int start, int end, int t
     buildTree(arr, tree, mid + 1, end, 2 * treeNode + 1);
 
     int firstMax = max(tree[2 * treeNode].first, tree[2 * treeNode + 1].first);
-    int secondMax = min(max(tree[2 * treeNode].first, tree[2 * treeNode].second), max(tree[2 * treeNode + 1].first, tree[2 * treeNode + 1].second));
+    int secondMax = min(max(tree[2 * treeNode].first, tree[2 * treeNode + 1].second), max(tree[2 * treeNode + 1].first, tree[2 * treeNode].second));
     tree[treeNode] = make_pair(firstMax, secondMax);
 }
 
@@ -27,7 +27,7 @@ void updateTree(int *arr, vector<pair<int, int>> &tree, int start, int end, int 
     if (start == end)
     {
         arr[idx] = value;
-        tree[treeNode] = make_pair(arr[start], arr[start]);
+        tree[treeNode] = make_pair(arr[start], 0);
         return;
     }
     int mid = (start + end) / 2;
@@ -37,7 +37,7 @@ void updateTree(int *arr, vector<pair<int, int>> &tree, int start, int end, int 
         buildTree(arr, tree, mid + 1, end, 2 * treeNode + 1);
 
     int firstMax = max(tree[2 * treeNode].first, tree[2 * treeNode + 1].first);
-    int secondMax = min(max(tree[2 * treeNode].first, tree[2 * treeNode].second), max(tree[2 * treeNode + 1].first, tree[2 * treeNode + 1].second));
+    int secondMax = min(max(tree[2 * treeNode].first, tree[2 * treeNode + 1].second), max(tree[2 * treeNode + 1].first, tree[2 * treeNode].second));
     tree[treeNode] = make_pair(firstMax, secondMax);
 }
 
@@ -57,7 +57,7 @@ pair<int, int> queryTree(vector<pair<int, int>> tree, int start, int end, int tr
     pair<int, int> ans2 = queryTree(tree, mid + 1, end, 2 * treeNode + 1, left, right);
 
     int firstMax = max(ans1.first, ans2.first);
-    int secondMax = min(max(ans1.first, ans1.second), max(ans2.first, ans2.second));
+    int secondMax = min(max(ans1.first, ans2.second), max(ans2.first, ans1.second));
     return make_pair(firstMax, secondMax);
 }
 
