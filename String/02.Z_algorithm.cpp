@@ -1,5 +1,5 @@
 /*
-    Given an string and pattern write a function to print all the occurrences of the pattern in string using KMP algorithm.
+    Given an string and pattern write a function to print all the occurrences of the pattern in string using Z algorithm.
 */
 
 #include <bits/stdc++.h>
