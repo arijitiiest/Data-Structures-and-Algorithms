@@ -28,6 +28,24 @@ void findNumbers(int arr[], int n)
     cout << a << " " << b << "\n";
 }
 
+// // Another method
+// void findNumbers(int arr[], int n)
+// {
+//     int i;
+//     for (i = 0; i < n; i++)
+//         if (arr[i] != arr[arr[i] - 1])
+//         {
+//             swap(arr[i], arr[arr[i] - 1]);
+//             i--;
+//         }
+
+//     for (i = 0; i < n; i++)
+//         if (arr[i] != i + 1)
+//             break;
+
+//     cout << arr[i] << " " << i + 1 << "\n";
+// }
+
 int main()
 {
     int arr[] = {3, 1, 2, 5, 3};
