@@ -2,3 +2,5 @@
 *.exe
 
 .vscode
+
+my_env

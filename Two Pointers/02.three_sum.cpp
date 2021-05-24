@@ -41,7 +41,7 @@ int threeSumClosest(int arr[], int n, int target)
             if (temp < target)
                 left++;
             else
-                right++;
+                right--;
         }
     }
     return sum;
