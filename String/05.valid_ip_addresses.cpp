@@ -8,6 +8,8 @@
         A = "25525511135"
 
         return [“255.255.11.135”, “255.255.111.35”]
+
+    Link: https://www.geeksforgeeks.org/program-generate-possible-valid-ip-addresses-given-string/
 */
 
 #include <bits/stdc++.h>

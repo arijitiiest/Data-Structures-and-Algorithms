@@ -1,5 +1,7 @@
 /*
     Given an string and pattern write a function to print all the occurrences of the pattern in string using KMP algorithm.
+
+    Link: https://www.geeksforgeeks.org/kmp-algorithm-for-pattern-searching/
 */
 
 #include <bits/stdc++.h>
