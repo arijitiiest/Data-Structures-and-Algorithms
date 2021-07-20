@@ -36,7 +36,20 @@ long long countBits(long long n)
     return (n + 1) + (m * (1 << (m - 1))) + countBits(n); //recursively calling for the rest of the bits
 }
 
+int count_set_bits_of_a_number(int n)
+{
+    int count = 0;
+    while (n)
+    {
+        count++;
+        n = n & (n - 1);
+    }
+    return count;
+}
+
 int main()
 {
     cout << countBits(5) % MOD << endl;
+
+    cout << count_set_bits_of_a_number(6) << endl;
 }
