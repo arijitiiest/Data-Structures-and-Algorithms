@@ -26,10 +26,51 @@
     Problem: https://www.codechef.com/problems/DIVSUBS
 */
 
-#include<bits/stdc++.h>
+#include <bits/stdc++.h>
 using namespace std;
+
+void findDivisibleSubsets(int A[], int n)
+{
+    pair<int, vector<int>> freq[n] = {{0, vector<int>(0)}};
+    freq[0].first = 1;
+    freq[0].second.push_back(-1);
+    long temp = 0;
+    for (int i = 0; i < n; i++)
+    {
+        temp += A[i];
+        temp %= n;
+        freq[temp].first++;
+        freq[temp].second.push_back(i);
+    }
+
+    for (int i = 0; i < n; i++)
+    {
+        if (freq[i].first >= 2)
+        {
+            cout << freq[i].second[1] - freq[i].second[0] << endl;
+            for (int j = freq[i].second[0] + 2; j <= freq[i].second[1] + 1; j++)
+                cout << j << " ";
+            return;
+        }
+    }
+    cout << "-1\n";
+}
 
 int main()
 {
+    int t;
+    cin >> t;
+    while (t--)
+    {
+        int n;
+        cin >> n;
+        int A[n];
+        for (int i = 0; i < n; i++)
+        {
+            cin >> A[i];
+        }
+
+        findDivisibleSubsets(A, n);
+    }
     return 0;
 }
